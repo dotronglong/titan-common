@@ -1,0 +1,35 @@
+{
+    "name": "dotronglong/titan-common",
+    "description": "Common functions and classes for Titan framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Long Do",
+            "email": "me@dotronglong.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Titan\\Common\\": "src"
+        },
+        "classmap": []
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Titan\\Tests\\Common\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0"
+    }
+}
