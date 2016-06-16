@@ -26,4 +26,9 @@ trait BagTrait
     {
         unset($this->data[$key]);
     }
+
+    public function clean()
+    {
+        $this->data = [];
+    }
 }

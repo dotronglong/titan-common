@@ -33,4 +33,9 @@ interface BagInterface
      * @param string $key
      */
     public function remove($key);
+
+    /**
+     * Remove all keys
+     */
+    public function clean();
 }
