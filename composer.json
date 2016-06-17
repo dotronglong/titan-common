@@ -14,7 +14,9 @@
         "psr-4": {
             "Titan\\Common\\": "src"
         },
-        "classmap": []
+        "classmap": [
+            "tests/TestCase.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
