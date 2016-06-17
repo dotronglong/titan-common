@@ -24,7 +24,7 @@ abstract class Singleton implements InstanceInterface
     /**
      * Set global instance for class
      *
-     * @param static $instance
+     * @param self $instance
      */
     public static function setInstance($instance)
     {
