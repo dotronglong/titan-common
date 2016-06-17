@@ -5,7 +5,7 @@ abstract class Singleton implements InstanceInterface
     /**
      * @var static
      */
-    protected static $instance;
+    private static $instance;
 
     /**
      * Get global instance
