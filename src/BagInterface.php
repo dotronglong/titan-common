@@ -3,12 +3,16 @@
 interface BagInterface
 {
     /**
-     * Define whether a key exists
+     * Get all keys
      *
-     * @param $key
-     * @return bool
+     * @return array
      */
-    public function has($key);
+    public function all();
+
+    /**
+     * Remove all keys
+     */
+    public function clean();
 
     /**
      * Get a key's value
@@ -20,12 +24,20 @@ interface BagInterface
     public function get($key, $default = null);
 
     /**
-     * Set a key
+     * Define whether a key exists
      *
-     * @param string $key
-     * @param $value
+     * @param $key
+     * @return bool
      */
-    public function set($key, $value);
+    public function has($key);
+
+    /**
+     * Get only some specific keys
+     *
+     * @param array $keys
+     * @return array
+     */
+    public function only(array $keys);
 
     /**
      * Remove a key
@@ -35,7 +47,17 @@ interface BagInterface
     public function remove($key);
 
     /**
-     * Remove all keys
+     * Replace all current data to new one
+     *
+     * @param array $data
      */
-    public function clean();
+    public function replace(array $data);
+
+    /**
+     * Set a key
+     *
+     * @param string $key
+     * @param $value
+     */
+    public function set($key, $value);
 }

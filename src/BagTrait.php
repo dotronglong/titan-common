@@ -7,9 +7,14 @@ trait BagTrait
      */
     private $data = [];
 
-    public function has($key)
+    public function all()
     {
-        return array_key_exists($key, $this->data);
+        return $this->data;
+    }
+
+    public function clean()
+    {
+        $this->data = [];
     }
 
     public function get($key, $default = null)
@@ -17,9 +22,14 @@ trait BagTrait
         return $this->has($key) ? $this->data[$key] : $default;
     }
 
-    public function set($key, $value)
+    public function has($key)
     {
-        $this->data[$key] = $value;
+        return array_key_exists($key, $this->data);
+    }
+
+    public function only(array $keys)
+    {
+        return array_intersect_key($this->data, array_flip($keys));
     }
 
     public function remove($key)
@@ -27,8 +37,13 @@ trait BagTrait
         unset($this->data[$key]);
     }
 
-    public function clean()
+    public function replace(array $data)
     {
-        $this->data = [];
+        $this->data = $data;
+    }
+
+    public function set($key, $value)
+    {
+        $this->data[$key] = $value;
     }
 }
