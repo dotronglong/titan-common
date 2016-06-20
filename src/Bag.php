@@ -3,4 +3,9 @@
 class Bag implements BagInterface
 {
     use BagTrait;
+
+    public function __construct(array $data = [])
+    {
+        $this->replace($data);
+    }
 }
