@@ -6,11 +6,11 @@ class Stream implements StreamInterface
 {
     const STREAM_READ  = 'read';
     const STREAM_WRITE = 'write';
-    const STREAM_MODE  = 'mode';
 
     const META_SEEKABLE = 'seekable';
     const META_SIZE     = 'size';
     const META_URI      = 'uri';
+    const META_MODE     = 'mode';
 
     /**
      * @var array
@@ -98,8 +98,8 @@ class Stream implements StreamInterface
 
         $this->metaData = stream_get_meta_data($this->stream);
         $this->seekable = $this->metaData[static::META_SEEKABLE];
-        $this->readable = isset(static::$readWriteHash[static::STREAM_READ][static::STREAM_MODE]);
-        $this->writable = isset(static::$readWriteHash[static::STREAM_WRITE][static::STREAM_MODE]);
+        $this->readable = isset(static::$readWriteHash[static::STREAM_READ][$this->getMetadata(static::META_MODE)]);
+        $this->writable = isset(static::$readWriteHash[static::STREAM_WRITE][$this->getMetadata(static::META_MODE)]);
         $this->uri      = $this->metaData[static::META_URI];
     }
 
@@ -119,7 +119,7 @@ class Stream implements StreamInterface
     {
         $stream = $this->stream;
         unset($this->stream);
-        $this->size     = $this->uri     = null;
+        $this->size     = $this->uri = null;
         $this->readable = $this->writable = $this->seekable = false;
 
         return $stream;

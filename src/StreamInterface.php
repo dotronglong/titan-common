@@ -15,6 +15,7 @@ interface StreamInterface
     const PHP_STDERR = 'php://stderr';
     const PHP_STDIN  = 'php://stdin';
     const PHP_STDOUT = 'php://stdout';
+    const PHP_TEMP   = 'php://temp';
 
     /**
      * Reads all data from the stream into a string, from the beginning to end.
@@ -73,8 +74,8 @@ interface StreamInterface
      * @link http://php.net/manual/en/function.stream-get-meta-data.php
      * @param string $key Specific metadata to retrieve.
      * @return array|mixed|null Returns an associative array if no key is
-     *     provided. Returns a specific key value if a key is provided and the
-     *     value is found, or null if the key is not found.
+     *                    provided. Returns a specific key value if a key is provided and the
+     *                    value is found, or null if the key is not found.
      */
     public function getMetadata($key = null);
 
@@ -110,10 +111,10 @@ interface StreamInterface
      * Read data from the stream.
      *
      * @param int $length Read up to $length bytes from the object and return
-     *     them. Fewer than $length bytes may be returned if underlying stream
-     *     call returns fewer bytes.
+     *                    them. Fewer than $length bytes may be returned if underlying stream
+     *                    call returns fewer bytes.
      * @return string Returns the data read from the stream, or an empty string
-     *     if no bytes are available.
+     *                    if no bytes are available.
      * @throws \RuntimeException if an error occurs.
      */
     public function read($length);
@@ -124,7 +125,7 @@ interface StreamInterface
      * If the stream is not seekable, this method will raise an exception;
      * otherwise, it will perform a seek(0).
      *
-     * @see seek()
+     * @see  seek()
      * @link http://www.php.net/manual/en/function.fseek.php
      * @throws \RuntimeException on failure.
      */
@@ -136,10 +137,10 @@ interface StreamInterface
      * @link http://www.php.net/manual/en/function.fseek.php
      * @param int $offset Stream offset
      * @param int $whence Specifies how the cursor position will be calculated
-     *     based on the seek offset. Valid values are identical to the built-in
-     *     PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to
-     *     offset bytes SEEK_CUR: Set position to current location plus offset
-     *     SEEK_END: Set position to end-of-stream plus offset.
+     *                    based on the seek offset. Valid values are identical to the built-in
+     *                    PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to
+     *                    offset bytes SEEK_CUR: Set position to current location plus offset
+     *                    SEEK_END: Set position to end-of-stream plus offset.
      * @throws \RuntimeException on failure.
      */
     public function seek($offset, $whence = SEEK_SET);
