@@ -117,17 +117,27 @@ class Stream implements StreamInterface
 
     public function detach()
     {
-        // TODO: Implement detach() method.
+        $stream = $this->stream;
+        unset($this->stream);
+        $this->size     = $this->uri     = null;
+        $this->readable = $this->writable = $this->seekable = false;
+
+        return $stream;
     }
 
     public function eof()
     {
-        // TODO: Implement eof() method.
+        return feof($this->stream);
     }
 
     public function getContents()
     {
-        // TODO: Implement getContents() method.
+        $contents = stream_get_contents($this->stream);
+        if ($contents === false) {
+            throw new \RuntimeException('Unable to read stream contents');
+        }
+
+        return $contents;
     }
 
     public function getMetadata($key = null)
@@ -142,7 +152,13 @@ class Stream implements StreamInterface
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
+        try {
+            $this->seek(0);
+
+            return (string) stream_get_contents($this->stream);
+        } catch (\Exception $e) {
+            return '';
+        }
     }
 
     public function read($length)
