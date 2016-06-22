@@ -1,8 +1,8 @@
 <?php namespace Titan\Common\Content;
 
-use Titan\Common\HasStreamTrait;
+use Titan\Common\StreamAwareTrait;
 
 abstract class Parser implements ParserInterface
 {
-    use HasContentTrait, HasStreamTrait;
+    use ContentAwareTrait, StreamAwareTrait;
 }

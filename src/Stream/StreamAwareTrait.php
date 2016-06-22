@@ -1,6 +1,6 @@
 <?php namespace Titan\Common;
 
-trait HasStreamTrait
+trait StreamAwareTrait
 {
     /**
      * @var StreamInterface

@@ -1,11 +1,11 @@
 <?php namespace Titan\Common\Content;
 
-trait HasContentTrait
+trait ContentAwareTrait
 {
     /**
      * @var string
      */
-    protected $content;
+    private $content;
 
     public function getContent()
     {

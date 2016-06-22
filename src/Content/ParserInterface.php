@@ -1,36 +1,10 @@
 <?php namespace Titan\Common\Content;
 
 use Titan\Common\Exception\Content\InvalidContentException;
-use Titan\Common\StreamInterface;
+use Titan\Common\Stream\StreamAwareInterface;
 
-interface ParserInterface
+interface ParserInterface extends StreamAwareInterface, ContentAwareInterface
 {
-    /**
-     * Return content of parser
-     *
-     * @return string
-     */
-    public function getContent();
-
-    /**
-     * Set content of parser
-     *
-     * @param string $content
-     * @return self
-     */
-    public function setContent($content);
-
-    /**
-     * @return StreamInterface
-     */
-    public function getStream();
-
-    /**
-     * @param StreamInterface $stream
-     * @return self
-     */
-    public function setStream(StreamInterface $stream);
-
     /**
      * Parse content. If there is no specified content, use inside content instead
      *
