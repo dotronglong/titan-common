@@ -20,7 +20,7 @@ trait ContentAwareTrait
         if ($content instanceof Stringable) {
             $this->content = (string) $content;
         } elseif (is_resource($content)) {
-            throw new InvalidArgumentException('Content must be a string or an instance of Stringable');
+            throw new InvalidArgumentException('Content must not be a resource.');
         } else {
 			$this->content = $content;
 		}
