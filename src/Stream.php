@@ -119,7 +119,7 @@ class Stream implements StreamInterface
     {
         $stream = $this->stream;
         unset($this->stream);
-        $this->size     = $this->uri = null;
+        $this->size     = $this->uri     = null;
         $this->readable = $this->writable = $this->seekable = false;
 
         return $stream;
@@ -130,7 +130,7 @@ class Stream implements StreamInterface
         return feof($this->stream);
     }
 
-    public function getContents()
+    public function getRemainingContents()
     {
         $contents = stream_get_contents($this->stream);
         if ($contents === false) {
@@ -225,6 +225,11 @@ class Stream implements StreamInterface
     public function isWritable()
     {
         return $this->writable;
+    }
+
+    public function getContents()
+    {
+        return (string) $this;
     }
 
     /**
