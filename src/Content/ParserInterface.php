@@ -1,16 +1,15 @@
 <?php namespace Titan\Common\Content;
 
 use Titan\Common\Exception\Content\InvalidContentException;
-use Titan\Common\Stream\StreamAwareInterface;
 
-interface ParserInterface extends StreamAwareInterface, ContentAwareInterface
+interface ParserInterface
 {
     /**
-     * Parse content. If there is no specified content, use inside content instead
+     * Parse provided content
      *
-     * @param null|string $content
+     * @param string $content
      * @return mixed
      * @throws InvalidContentException
      */
-    public function parse($content = null);
+    public function parse($content);
 }
