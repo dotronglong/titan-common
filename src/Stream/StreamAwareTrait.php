@@ -1,4 +1,4 @@
-<?php namespace Titan\Common;
+<?php namespace Titan\Common\Stream;
 
 trait StreamAwareTrait
 {
