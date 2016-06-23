@@ -7,7 +7,7 @@
  * a wrapper around the most common operations, including serialization of
  * the entire stream to a string.
  */
-interface StreamInterface
+interface StreamInterface extends Stringable
 {
     const PHP_INPUT  = 'php://input';
     const PHP_OUTPUT = 'php://output';
@@ -16,22 +16,6 @@ interface StreamInterface
     const PHP_STDIN  = 'php://stdin';
     const PHP_STDOUT = 'php://stdout';
     const PHP_TEMP   = 'php://temp';
-
-    /**
-     * Reads all data from the stream into a string, from the beginning to end.
-     *
-     * This method MUST attempt to seek to the beginning of the stream before
-     * reading data and read the stream until the end is reached.
-     *
-     * Warning: This could attempt to load a large amount of data into memory.
-     *
-     * This method MUST NOT raise an exception in order to conform with PHP's
-     * string casting operations.
-     *
-     * @see http://php.net/manual/en/language.oop5.magic.php#object.tostring
-     * @return string
-     */
-    public function __toString();
 
     /**
      * Closes the stream and any underlying resources.
