@@ -1,5 +1,7 @@
 <?php namespace Titan\Common\Stream;
 
+use Titan\Common\StreamInterface;
+
 trait StreamAwareTrait
 {
     /**
