@@ -19,11 +19,11 @@ trait ContentAwareTrait
     {
         if ($content instanceof Stringable) {
             $this->content = (string) $content;
-        } elseif (is_string($content)) {
-            $this->content = $content;
-        } else {
+        } elseif (is_resource($content)) {
             throw new InvalidArgumentException('Content must be a string or an instance of Stringable');
-        }
+        } else {
+			$this->content = $content;
+		}
 
         return $this;
     }

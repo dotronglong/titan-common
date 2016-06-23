@@ -5,18 +5,18 @@ use Titan\Common\Exception\InvalidArgumentException;
 interface ContentAwareInterface
 {
     /**
-     * Return content of parser
+     * Return content
      *
-     * @return string
+     * @return mixed
      */
     public function getContent();
 
     /**
-     * Set content of parser
+     * Set content
      *
-     * @param string $content
+     * @param mixed $content
      * @return self
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException Exception raises when content is a resource
      */
     public function setContent($content);
 }
