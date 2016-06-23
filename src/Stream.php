@@ -152,13 +152,7 @@ class Stream implements StreamInterface
 
     public function __toString()
     {
-        try {
-            $this->seek(0);
-
-            return (string) stream_get_contents($this->stream);
-        } catch (\Exception $e) {
-            return '';
-        }
+        return $this->getContent();
     }
 
     public function read($length)
@@ -227,9 +221,15 @@ class Stream implements StreamInterface
         return $this->writable;
     }
 
-    public function getContents()
+    public function getContent()
     {
-        return (string) $this;
+        try {
+            $this->seek(0);
+
+            return (string) stream_get_contents($this->stream);
+        } catch (\Exception $e) {
+            return '';
+        }
     }
 
     /**

@@ -62,7 +62,7 @@ interface StreamInterface extends Stringable
      *
      * @return string
      */
-    public function getContents();
+    public function getContent();
 
     /**
      * Get stream metadata as an associative array or retrieve a specific key.

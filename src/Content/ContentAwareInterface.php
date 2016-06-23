@@ -1,5 +1,7 @@
 <?php namespace Titan\Common\Content;
 
+use Titan\Common\Exception\InvalidArgumentException;
+
 interface ContentAwareInterface
 {
     /**
@@ -14,6 +16,7 @@ interface ContentAwareInterface
      *
      * @param string $content
      * @return self
+     * @throws InvalidArgumentException
      */
     public function setContent($content);
 }
