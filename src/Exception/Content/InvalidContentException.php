@@ -4,5 +4,4 @@ use Titan\Common\Exception\TitanException;
 
 class InvalidContentException extends TitanException
 {
-
 }

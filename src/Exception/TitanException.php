@@ -2,5 +2,4 @@
 
 class TitanException extends \Exception
 {
-
 }

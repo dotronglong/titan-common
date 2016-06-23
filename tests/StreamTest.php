@@ -1,4 +1,4 @@
-<?php namespace Titan\Tests;
+<?php namespace Titan\tests;
 
 use Titan\Common\Stream;
 use Titan\Common\StreamInterface;
@@ -7,7 +7,8 @@ use RuntimeException;
 
 function fwrite($str, $len)
 {
-    echo 'xxx';die;
+    echo 'xxx';
+    die;
 }
 
 class StreamTest extends TestCase

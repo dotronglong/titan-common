@@ -4,5 +4,4 @@ use Titan\Common\Singleton;
 
 class SingletonSample extends Singleton
 {
-
 }
