@@ -1,4 +1,4 @@
-<?php namespace Titan\tests;
+<?php namespace Titan\Tests;
 
 use Titan\Common\Stream;
 use Titan\Common\StreamInterface;
